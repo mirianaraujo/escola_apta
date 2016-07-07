@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Escola:</strong>
+  <%= @curso_escola.escola.nome if !@curso_escola.escola.nil? %>
+</p>
+
+<p>
+  <strong>Curso:</strong>
+  <%= @curso_escola.curso.nome  if !@curso_escola.curso.nil?%>
+</p>
+
+<p>
+  <strong>Professor:</strong>
+  <%= @curso_escola.professor.nome if !@curso_escola.professor.nil? %>
+</p>
+
+<%= link_to 'Edit', edit_curso_escola_path(@curso_escola) %> |
+<%= link_to 'Back', curso_escolas_path %>

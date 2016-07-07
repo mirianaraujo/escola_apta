@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: escola
+  username: postgres
+  password: postgres
+  host: localhost
+  port: 5432
+  schema_search_path: escola_apta
+
+test:
+  <<: *default
+  database: escola_apta_test
+
+production:
+  <<: *default
+  database: escola_apta_production
+  username: escola_apta
+  password: <%= ENV['ESCOLA_APTA_DATABASE_PASSWORD'] %>

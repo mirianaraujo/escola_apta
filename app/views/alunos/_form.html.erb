@@ -1,0 +1,38 @@
+<%= form_for(@aluno) do |f| %>
+  <% if @aluno.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@aluno.errors.count, "error") %> prohibited this aluno from being saved:</h2>
+
+      <ul>
+      <% @aluno.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :cpf %><br>
+    <%= f.text_field :cpf %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :curso_escola_id %><br>
+    <%= f.select(:curso_escola_id, CursoEscola.all.collect {|i| ["#{i.curso.nome if !i.curso.nil?} #{i.escola.nome if !i.escola.nil?}", i.id]}, { prompt: "Selecione Curso" })  %>
+  </div>
+  <div class="field">
+    <%= f.label :ativo %>
+    <%= f.check_box :ativo %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
