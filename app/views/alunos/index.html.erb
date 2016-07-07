@@ -20,7 +20,7 @@
         <td><%= (aluno.cpf if !aluno.cpf.nil?)%></td>
         <td><%= (aluno.curso_escola.curso.nome if !aluno.curso_escola.curso.nil?) if !aluno.curso_escola.nil? %></td>
         <td><%= aluno.ativo %>
-        <td><%= link_to 'Show', aluno %></td>
+        <td><%= link_to 'Visualizar', aluno %></td>
         <td><%= link_to 'Edit', edit_aluno_path(aluno) %></td>
         <td><%= link_to 'Destroy', aluno, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
